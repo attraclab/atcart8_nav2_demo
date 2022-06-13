@@ -1,0 +1,54 @@
+### Ref.
+https://navigation.ros.org/setup_guides/footprint/setup_footprint.html
+https://navigation.ros.org/tutorials/docs/navigation2_on_real_turtlebot3.html
+https://navigation.ros.org/tutorials/docs/navigation2_with_slam.html
+https://www.youtube.com/watch?v=3Ak3KoNhfv0&ab_channel=Softillusion
+https://github.com/SteveMacenski/slam_toolbox/blob/ros2/config/mapper_params_online_async.yaml
+https://github.com/harshkakashaniya/webots_ros2/blob/master/webots_ros2_tutorials/config/slam_config.yaml
+http://docs.ros.org/en/noetic/api/robot_localization/html/configuring_robot_localization.html
+
+## install
+### YDLidar
+https://github.com/YDLIDAR/YDLidar-SDK
+https://github.com/YDLIDAR/ydlidar_ros2_driver
+sudo ldconfig # before colcon build
+
+### robot_localization
+sudo apt install ros-foxy-robot-localization
+
+### Nav2
+sudo apt install ros-foxy-navigation2
+sudo apt install ros-foxy-nav2-bringup
+sudo apt install ros-foxy-slam-toolbox
+
+### Build
+we can build as usual, but to update or change the .yaml or .launch.py files without rebuild,
+we need to symlink it to ~/dev_ws/install/<package_name>/share/<package_name>/
+
+## Run
+### making map
+### we need to use ydlidar_ros from ROS1 with ros1_bridge to get a constant length of ranges
+### slam_toolbox keeps throwing warning which caused the mapping algorithms not working
+#ros2 run slam_toolbox async_slam_toolbox_node --ros-args --params-file /home/nvidia/dev_ws/src/atcart8_nav2_demo/config/mapper_params_online_async.yaml
+ros2 launch slam_toolbox online_async_launch.py slam_params_file:=/home/nvidia/dev_ws/src/atcart8_nav2_demo/config/mapper_params_online_async.yaml
+### save the map to .pgm .yaml files
+ros2 run nav2_map_server map_saver_cli -f <map_name>
+
+### atcart8 robot
+ros2 launch atcart8_nav2_demo robot.launch.py
+
+
+### Navigation after got map
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=False autostart:=True map:=/home/nvidia/dev_ws/src/atcart8_nav2_demo/map/<your-map>.yaml params_file:=/home/nvidia/dev_ws/src/atcart8_nav2_demo/config/nav2_params.yaml
+#ros2 launch nav2_bringup navigation_launch.py params_file:=/home/nvidia/dev_ws/src/atcart8_nav2_demo/config/nav2_params.yaml
+
+
+### Rviz2 may crash or not load the costmap properly, it's because of QoS, 
+### trying checking on topic History, Reliability, Durability policies and adjusting.
+### Better to run rviz2 first before nav2_bringup
+
+
+## Run with oakd_ros2 and small_object_stop.py
+
+ros2 run oakd_ros2 depth_to_laser --usb2Mode  0
+ros2 run atcart8_nav2_demo small_object_stop
