@@ -201,6 +201,7 @@ rviz2
 source /opt/ros/foxy/setup.bash
 source ~/dev_ws/install/local_setup.bash
 ros2 launch nav2_bringup bringup_launch.py use_sim_time:=False autostart:=True map:=/home/$USER/dev_ws/src/atcart8_nav2_demo/map/<your-map>.yaml params_file:=/home/$USER/dev_ws/src/atcart8_nav2_demo/config/nav2_params.yaml
+### please specify the params_file and map correctly
 
 ### nav2_params.yaml is for original size atcart8
 ### nav2_params_smallCart.yaml is for small size atcart8
