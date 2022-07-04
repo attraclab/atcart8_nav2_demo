@@ -21,6 +21,8 @@ sudo apt install ros-foxy-navigation2
 sudo apt install ros-foxy-nav2-bringup
 sudo apt install ros-foxy-slam-toolbox
 
+sudo apt install ros-foxy-tf-transformations
+
 ### Build
 we can build as usual, but to update or change the .yaml or .launch.py files without rebuild,
 we need to symlink it to ~/dev_ws/install/<package_name>/share/<package_name>/
