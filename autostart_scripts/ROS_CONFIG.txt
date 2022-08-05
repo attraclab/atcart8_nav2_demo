@@ -1,0 +1,4 @@
+export ROS_MASTER_URI=http://localhost:11311
+export ROS_IP=192.168.8.131
+export ROS_HOSTNAME=$ROS_IP
+export ROS_DOMAIN_ID=1
