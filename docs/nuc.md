@@ -2,6 +2,22 @@
 
 ZMOAB is originally made from ROS1, so we need to install ROS1 as well.
 
+## Hardware
+
+- Intel NUC
+- AT_ZMOAB
+- ZLAC8015D + a pair of 8inch motor
+- YDLidar TG30
+- Futaba RC receiver
+- BNO055 IMU
+- 19V DC regulator
+- Battery from 24-48V
+- WS2812b (optional for status indicator)
+
+The cable connection is shown as following diagram, 
+
+![](../images/nuc_setup.png)
+
 ## Dependencies
 
 Please make sure to have these following packages install before,
