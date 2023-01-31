@@ -14,7 +14,7 @@ amcl:
     global_frame_id: "map"
     lambda_short: 0.1
     laser_likelihood_max_dist: 6.0 #2.0
-    laser_max_range: 30.0
+    laser_max_range: 100.0
     laser_min_range: -1.0
     laser_model_type: "likelihood_field"
     max_beams: 60
@@ -23,8 +23,8 @@ amcl:
     odom_frame_id: "odom"
     pf_err: 0.05
     pf_z: 0.99
-    recovery_alpha_fast: 1.0 #0.001
-    recovery_alpha_slow: 1.0 #0.001
+    recovery_alpha_fast: 0.0 #0.001
+    recovery_alpha_slow: 0.0 #0.001
     resample_interval: 1
     robot_model_type: "differential"
     save_pose_rate: 0.5
@@ -33,10 +33,10 @@ amcl:
     update_min_a: 0.2
     update_min_d: 0.25
     z_hit: 0.9 #0.5
-    z_max: 0.5 #0.05
+    z_max: 0.05 #0.05
     z_rand: 0.5
     z_short: 0.05
-    sigma_hit: 5.0 #0.05 #0.2
+    sigma_hit: 0.05 #0.2
     scan_topic: /scan
     map_topic: map
     set_initial_pose: true #false
@@ -71,7 +71,7 @@ bt_navigator:
     # nav2_bt_navigator/navigate_to_pose_w_replanning_and_recovery.xml
     # nav2_bt_navigator/navigate_through_poses_w_replanning_and_recovery.xml
     # They can be set here or via a RewrittenYaml remap from a parent launch file to Nav2.
-    default_bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
+    default_bt_xml_filename: navigate_w_replanning_time.xml #"navigate_w_replanning_and_recovery.xml"
     plugin_lib_names:
       - nav2_compute_path_to_pose_action_bt_node
       - nav2_follow_path_action_bt_node

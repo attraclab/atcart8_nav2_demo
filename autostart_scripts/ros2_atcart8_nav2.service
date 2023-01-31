@@ -1,0 +1,12 @@
+[Unit]
+Description=All of ROS running on the background
+After=multi-user.target
+
+[Service]
+Type=idle
+User=ubuntu
+ExecStart=/usr/bin/bash /home/ubuntu/dev_ws/src/atcart8_nav2_demo/autostart_scripts/start_nav2.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
