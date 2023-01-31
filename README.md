@@ -14,3 +14,4 @@ Small size
 
 - [Jetson Nano with JMOAB](./docs/jetson_nano.md)
 - [Intel NUC with ZMOAB](./docs/nuc.md)
+- [Intel NUC with ZMOAB and Nav2 humble docker](./docs/nav2_humble.md)
