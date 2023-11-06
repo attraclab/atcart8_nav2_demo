@@ -3,14 +3,14 @@
 rosws=dev_ws
 rospackage=atcart8_nav2_demo
 
-sleep 8
+sleep 20
 
 export DISPLAY=:0.0
 export LOGFILE=/home/$USER/$rosws/src/$rospackage/autostart_scripts/ydlidar_launch.log
 
 source /home/$USER/$rosws/src/$rospackage/autostart_scripts/ROS_CONFIG.txt
 #source /opt/ros/noetic/setup.bash
-source /opt/ros/foxy/setup.bash
+source /opt/ros/galactic/setup.bash
 source /home/$USER/$rosws/install/local_setup.bash
 
 
