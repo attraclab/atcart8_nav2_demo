@@ -3,7 +3,7 @@
 rosws=dev_ws
 rospackage=atcart8_nav2_demo
 
-sleep 20
+sleep 50
 
 export DISPLAY=:0.0
 export LOGFILE=/home/$USER/$rosws/src/$rospackage/autostart_scripts/ydlidar_launch.log
